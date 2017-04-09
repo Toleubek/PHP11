@@ -9,7 +9,7 @@
 error_reporting(E_ALL);
 $name = 'Toleubek';
 $age = 31;
-$email = 'm.toleubek@mail.ru';
+$email = 'mma1@mmma1.ru';
 $town = 'Kokshetau';
 $aboutMyselfInAFewWords = 'My name is ' . $name .', i am ' . $age . ' years old and i live in '. $town .'.Please, send me letters on my email ' . $email . '!';
 ?>
