@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Second Home work</title>
+</head>
+<body>
 <?php
 $x = rand(0, 100);
 echo "Число - ".$x.'<br>';
@@ -15,3 +21,7 @@ if($p1 > $x){
 	$p2 = $p3;		
 }	
 ?>
+</body>
+</html>
+
+
