@@ -1,0 +1,42 @@
+<?php
+error_reporting(E_ALL);
+//1 
+
+$animals = array('Eurasia'=>array('Accentor altaicus','Accentor atrigularis','Alauda ','Chamaeleon-vulgaris','Anolis carolinensis','Haplochromis '),
+
+'Africa'=>array ('Panthera','Diceros bicornis','Emys','Testudo graeca','Uromastix aegyptius','Echis carinatus'),
+
+'Antarctida'=> array('Bufo marinus','Alytes obstetricans','Rhinoderma darvini','Bufo','Pipa americana'));
+
+//2
+
+$newAnimals = array();
+foreach($animals as $animal){
+	foreach($animal as $value){
+		if (str_word_count($value)>1){
+			array_push($newAnimals, $value);
+		}
+	}
+	
+}
+
+//3
+
+foreach ($newAnimals as $newAnimal){
+	$nameAnimals[] = explode(' ', $newAnimal);
+}
+
+foreach ($nameAnimals as $nameAnimal){
+	$firstName[] = $nameAnimal[0];
+	$secondName[] = $nameAnimal[1];
+} 
+
+$animalsRandom = array(); 
+
+foreach($firstName as $key => $value){
+	$int1 = rand($key, count($firstName)-1);	
+		foreach($secondName as $key => $value){ 
+		}
+}
+
+?>
