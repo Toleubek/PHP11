@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 //1 
 
-$animals = array('Eurasia'=>array('Accentor altaicus','Accentor atrigularis','Alauda ','Chamaeleon-vulgaris','Anolis carolinensis','Haplochromis '),
+$animals = array('Eurasia'=>array('Accentor altaicus','Accentor atrigularis','Alauda ','Chamaeleon vulgaris','Anolis carolinensis','Haplochromis '),
 
 'Africa'=>array ('Panthera','Diceros bicornis','Emys','Testudo graeca','Uromastix aegyptius','Echis carinatus'),
 
@@ -10,33 +10,53 @@ $animals = array('Eurasia'=>array('Accentor altaicus','Accentor atrigularis','Al
 
 //2
 
+/*echo '<pre>';
+	print_r($animals);
+echo '</pre>';
+
+die();*/
 $newAnimals = array();
-foreach($animals as $animal){
+foreach($animals as $region => $animal){
 	foreach($animal as $value){
 		if (str_word_count($value)>1){
-			array_push($newAnimals, $value);
+			$newAnimals[] = array('name'=>$value, 'region'=>$region);			
+			//array_push($newAnimals, $value);
+			
 		}
 	}
 	
 }
 
+
+
 //3
 
-foreach ($newAnimals as $newAnimal){
-	$nameAnimals[] = explode(' ', $newAnimal);
+foreach ($newAnimals as $key => $newAnimal){
+	$nameAnimalsName = explode(' ', $newAnimal['name']);
+	array_push($nameAnimalsName, $newAnimal['region']);
+	$reNewAnimals[] = $nameAnimalsName;
+	//$nameAnimals[$key()] =  $newAnimal['region'];
+	//$regionAnimals[] = explode(' ', $newAnimal['region']);
 }
 
-foreach ($nameAnimals as $nameAnimal){
-	$firstName[] = $nameAnimal[0];
-	$secondName[] = $nameAnimal[1];
+
+
+foreach ($reNewAnimals as $reNewAnimal){
+	$firstNames[] = $reNewAnimal[0];
+	$secondNames[] = $reNewAnimal[1];
 } 
 
 $animalsRandom = array(); 
 
-foreach($firstName as $key => $value){
-	$int1 = rand($key, count($firstName)-1);	
-		foreach($secondName as $key => $value){ 
-		}
+foreach($firstNames as $firstName){
+	$int1 = rand(0, count($firstNames)-1);	
+	$int2 = rand(0, count($secondNames)-1);
+	array_push($animalsRandom, $firstNames[$int1].' '.$secondNames[$int2]);		 
+		
 }
+
+echo '<pre>';
+	print_r($animalsRandom);
+echo '</pre>';
 
 ?>
