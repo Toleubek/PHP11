@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Second Home work</title>
-		<meta charset="UTF-8">	
-	</head>
-	<body>
-		<?php
+<?php
+
 		error_reporting(E_ALL);
 
 		$x = rand(0, 100);
 		echo 'Число - '.$x.'<br>';
-		//$p1 = 1;
-		//$p2 = 1;
+		
+$firstIf ='';
+$secondIf='';
 		
 		for ($p1 = 1;$p2 = 1;){
-			if($p1>$x){
-				echo 'Задуманное число не входит в числовой ряд';
+			if($p1>$x){				
+				$firstIf = 'Задуманное число не входит в числовой ряд';				
 				break;		
-			}else if($p1 === $x){
-				echo 'Задуманное число входит в числовой ряд';
+			}else if($p1 === $x){				
+				$secondIf = 'Задуманное число входит в числовой ряд';
 				break;
 			}else{
 				$p3 = $p1; 
@@ -27,8 +22,17 @@
 			}
 		}	
 		?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Second Home work</title>
+		<meta charset="UTF-8">	
+	</head>
+	<body>
+	<?php 
+		echo $firstIf; 
+		echo $secondIf;		
+		?>
 		
 	</body>
 </html>
-
-
