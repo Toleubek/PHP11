@@ -10,11 +10,7 @@ $animals = array('Eurasia'=>array('Accentor altaicus','Accentor atrigularis','Al
 
 //2
 
-/*echo '<pre>';
-	print_r($animals);
-echo '</pre>';
 
-die();*/
 $newAnimals = array();
 foreach($animals as $region => $animal){
 	foreach($animal as $value){
@@ -27,8 +23,6 @@ foreach($animals as $region => $animal){
 	
 }
 
-
-
 //3
 
 foreach ($newAnimals as $key => $newAnimal){
@@ -38,8 +32,6 @@ foreach ($newAnimals as $key => $newAnimal){
 	//$nameAnimals[$key()] =  $newAnimal['region'];
 	//$regionAnimals[] = explode(' ', $newAnimal['region']);
 }
-
-
 
 foreach ($reNewAnimals as $reNewAnimal){
 	$firstNames[] = $reNewAnimal[0];
@@ -55,6 +47,7 @@ foreach($firstNames as $firstName){
 		
 }
 
+//Вывод рандомно перемешенные названия названия животных
 echo '<pre>';
 	print_r($animalsRandom);
 echo '</pre>';
