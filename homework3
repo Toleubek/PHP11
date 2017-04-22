@@ -2,30 +2,28 @@
 error_reporting(E_ALL);
 //1 
 
-$animals = array('Eurasia'=>array('Accentor altaicus','Accentor atrigularis','Alauda ','Chamaeleon vulgaris','Anolis carolinensis','Haplochromis '),
+$animals = ['Eurasia'=>['Accentor altaicus','Accentor atrigularis','Alauda ','Chamaeleon vulgaris','Anolis carolinensis','Haplochromis '],
 
-'Africa'=>array ('Panthera','Diceros bicornis','Emys','Testudo graeca','Uromastix aegyptius','Echis carinatus'),
+	'Africa'=>['Panthera','Diceros bicornis','Emys','Testudo graeca','Uromastix aegyptius','Echis carinatus'],
 
-'Antarctida'=> array('Bufo marinus','Alytes obstetricans','Rhinoderma darvini','Bufo','Pipa americana'));
+	'Antarctida'=>['Bufo marinus','Alytes obstetricans','Rhinoderma darvini','Bufo','Pipa americana']];
 
 //2
 
 
-$newAnimals = array();
+$newAnimals = [];
 foreach($animals as $region => $animal){
 	foreach($animal as $value){
-		if (str_word_count($value)>1){
+		if(str_word_count($value)>1){
 			$newAnimals[] = array('name'=>$value, 'region'=>$region);			
-			//array_push($newAnimals, $value);
-			
+			//array_push($newAnimals, $value);			
 		}
-	}
-	
+	}	
 }
 
 //3
 
-foreach ($newAnimals as $key => $newAnimal){
+foreach($newAnimals as $key => $newAnimal){
 	$nameAnimalsName = explode(' ', $newAnimal['name']);
 	array_push($nameAnimalsName, $newAnimal['region']);
 	$reNewAnimals[] = $nameAnimalsName;
@@ -33,12 +31,12 @@ foreach ($newAnimals as $key => $newAnimal){
 	//$regionAnimals[] = explode(' ', $newAnimal['region']);
 }
 
-foreach ($reNewAnimals as $reNewAnimal){
+foreach($reNewAnimals as $reNewAnimal){
 	$firstNames[] = $reNewAnimal[0];
 	$secondNames[] = $reNewAnimal[1];
 } 
 
-$animalsRandom = array(); 
+$animalsRandom = []; 
 
 foreach($firstNames as $firstName){
 	$int1 = rand(0, count($firstNames)-1);	
@@ -47,9 +45,20 @@ foreach($firstNames as $firstName){
 		
 }
 
-//Вывод рандомно перемешенные названия названия животных
-echo '<pre>';
-	print_r($animalsRandom);
-echo '</pre>';
-
 ?>
+<!DOCTYPE HTML>
+<head>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+	<?php
+	//Вывод рандомно перемешенные названия названия животных
+	echo '<pre>';
+	print_r($animalsRandom);
+	echo '</pre>';
+	?>
+</body>
+</html>
+
+
+
