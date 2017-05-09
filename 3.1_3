@@ -1,0 +1,93 @@
+<?php
+error_reporting(E_ALL);
+
+class Car
+{
+    public $speed;
+    public $onPetrol = true;
+
+    public function speedInSeconds($speed)
+    {
+        $timeTo100 = $speed*3600;
+        echo 'Time to 100 km '.$timeTo100;
+    }
+    public function __construct($speed, $onPetrol)
+    {
+        $this->speed = $speed;
+        echo $this->speed.'</br>';
+        echo $this->onPetrol.'</br>';
+        $this->onPetrol = $onPetrol;
+    }
+}
+
+$toyota = new Car(200, 0);
+$toyota->speedInSeconds(200).'</br>';
+
+$audi = new Car(230, 1);
+echo $toyota->speedInSeconds(230).'</br>';
+class TvSet
+{
+    public $price;
+    public $brand;
+
+    public function __construct($price, $brand)
+    {
+        $this->price = $price;
+        $this->brand = $brand;
+        echo $this->price.'</br>';
+        echo $this->brand.'</br>';
+    }
+}
+
+$tv1 = new TvSet(1200, 'Sony');
+$tv2 = new TvSet(1350, 'Samsung');
+
+class BallPen
+{
+    public $color;
+    public $weightGramm;
+
+    public function __construct($color, $weightGramm)
+    {
+        $this->color = $color;
+        $this->weightGramm = $weightGramm;
+    }
+    public function doUSpeakToPen($bool1)
+    {
+        switch ('Do u speak with pen?')
+        {
+            case true:
+                echo 'You are getting crazy, writer';
+                break;
+
+            case false:
+                echo 'You are right';
+                break;
+        }
+
+    }
+}
+
+$pen1 = new BallPen('red', 150);
+$pen2 = new BallPen('blue', 200);
+
+$pen1->doUSpeakToPen(1);
+
+class Duck
+{
+    public $wild;
+    public $height;
+
+    public function __construct($wild, $height)
+    {
+        $this->wild = $wild;
+        $this->height = $height;
+
+        echo $this->wild.'</br>';
+        echo $this->height.'</br>';
+    }
+}
+
+$duck1 = new Duck(true, 250);
+$duck2 = new Duck(false, 200);
+
