@@ -1,4 +1,7 @@
 <?php
+//Опишите 5 классов и создайте по 2 объекта каждого класса - Машина, Телевизор, Шариковая ручка, Утка, Товар. Классы
+// должны содержать свойства и методы. Все в одном файле.
+
 error_reporting(E_ALL);
 
 class Car
@@ -90,4 +93,34 @@ class Duck
 
 $duck1 = new Duck(true, 250);
 $duck2 = new Duck(false, 200);
+
+class Goods
+{
+    public $foods;
+    public $price;
+
+    public function __construct($foods, $price)
+    {
+        $this->foods = $foods;
+        $this->price = $price;
+    }
+
+    public function printFoods()
+    {
+        foreach ($this->foods as $food)
+        {
+            echo $food.'</br>';
+        }
+    }
+}
+
+$goods1 = new Goods(array('milk','bread','tea'), 10);
+$goods2 = new Goods(array('beer','cigarette','vodka'), 100);
+
+$goods1->printFoods();
+$goods2->printFoods();
+
+
+
+
 
