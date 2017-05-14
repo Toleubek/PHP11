@@ -1,0 +1,88 @@
+<?php
+error_reporting(E_ALL);
+
+class Goods
+{
+    public $foods;
+    public $price;
+    public function __construct($foods, $price)
+    {
+        $this->foods = $foods;
+        $this->price = $price;
+    }
+    public function printItem()
+    {
+        foreach ($this->foods as $food)
+        {
+            echo $food.'</br>';
+        }
+    }
+}
+$goods1 = new Goods(array('milk','bread','tea'), 10);
+$goods2 = new Goods(array('beer','cigarette','vodka'), 100);
+$goods1->printItem();
+$goods2->printItem();
+
+class BallPen extends Goods
+{
+    public $color;
+    public $weightGramm;
+
+    public function __construct($color, $weightGramm)
+    {
+        $this->color = $color;
+        $this->weightGramm = $weightGramm;
+    }
+    public function doUSpeakToPen($bool1)
+    {
+        switch ('Do u speak with pen?')
+        {
+            case true:
+                echo 'You are getting crazy, writer';
+                break;
+
+            case false:
+                echo 'You are right';
+                break;
+        }
+
+    }
+    //Переопределил метод printFoods()
+    public function printItem()
+    {
+        echo 'Print pen^s weight - '.$this->weightGramm;
+    }
+}
+
+$pen1 = new BallPen('red', 150);
+$pen2 = new BallPen('blue', 200);
+//свойство родительского класса
+$pen2->price = 150;
+$pen1->doUSpeakToPen(1);
+
+class TvSet extends Goods
+{
+    public $brand;
+    public $price;
+
+    public function __construct($price, $brand)
+    {
+        $this->price = $price;
+        $this->brand = $brand;
+        //echo parent::$price.'</br>';
+        //echo $this->brand.'</br>';
+    }
+    public function printItem()
+    {
+        echo '</br> Price of this tv set is '.$this->price;
+    }
+
+}
+
+$tv1 = new TvSet(1200, 'Sony');
+$tv2 = new TvSet(1350, 'Samsung');
+$tv1->printItem();
+
+
+
+
