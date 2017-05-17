@@ -1,0 +1,72 @@
+<?php
+//4.Создайте интерфейсы для всех объектов, которые у вас были и имплементируйте их.
+error_reporting(E_ALL);
+//Машина, Телевизор, Шариковая ручка, Утка, Товар
+
+interface Car
+{
+    public function taxForEngineVolume($engineVolume);
+}
+interface TvSet
+{
+    public function getPrice($price, $discount);
+}
+
+interface BallPen
+{
+    public function colorIsBlue($color);
+}
+
+interface Duck
+{
+    public function getName($name);
+}
+
+interface Goods
+{
+    public function getList($item);
+}
+
+class SuperToyota implements Car, TvSet, BallPen, Duck, Goods
+{
+    public $color;
+    public $engineVolume;
+    public $price;
+    public $discount;
+    public $item;
+
+    public function taxForEngineVolume($engineVolume)
+    {
+        echo $tax = $engineVolume * 0.5;
+    }
+
+    public function getPrice($price, $discount)
+    {
+        $priceWithDiscount = $price * $discount / 100;
+    }
+    public function colorIsBlue($color)
+    {
+        $blue = true;
+        if($color != true)
+        {return false;
+        }else{
+            return true;
+        }
+    }
+    public function getName($name)
+    {
+        echo 'My name is '.$name;
+    }
+
+    public function getList($item)
+    {
+        $list = array();
+        array_push($list, $item);
+        echo '<pre>';
+        print_r($list);
+    }
+}
+$corolla = new SuperToyota();
+$corolla->taxForEngineVolume(1.8);
+$goods1 = new SuperToyota();
+$goods1->getList('bread, milk');
